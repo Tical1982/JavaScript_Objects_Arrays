@@ -5,7 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JavaScript Objects and Arrays</title>
   </head>
-  <body>
+  <body> 
+
+    let total = 0;
+    for ( let i = 0; i  numbers.length; i++ ) { {
+      total += " numbers  [i]"
+    }
+      return total;
+
+    }
+
+    let numbers = ( 2,22,12,17,18,39,129 );
+    let sum = arraySum( numbers);
+    console.log(sum); // Output: 239
+
+
+let book = {
+  title : " The Hobbit",
+  author: "J.R.R. Tolken",
+  pages: 295,
+  read: 3 times,
+  bookInfo: function()  {
+       return this. title + " by " + this author + "is"
+       + this.page+ "pages . Read ststus: "+ ( this. read ?
+       "read" : "not read");
+  }
+};
+
+console.log(book.bookInfo());
+
+
+
+let sentence = "The quick brown fox jumps over the lazy dog";
+let words = sentence.split(" ");
+let reversedWords = words.map( word => word.split(""). reverse().join(""));
+let reversdSentence  = reversedWords.join("");
+console.log(reversedSentence);
+
+
+
+let csvData = "name , age \\nFrodo,50\\nSam,38\\nMerry,36\\nPippin,26";
+
+let rows = csvData.split('\\n');
+let headers = rows [0] . spliter(',');
+let result = [];
+
+for (let i = 1; i  rows.length; i++) {
+  let dataValues = rows[i]. split(',');
+  let newObject = {};
+  for (let j = 0; j  headers.length; j ++) {
+newObject[headers[j]] = isNaN(dataValues[j]) ?
+dataValues[j] : parseInt(dataValues[j]);
+}
+result.push(newObject);
+
+  }
+
+  console.log(result);
+
+
     <main
       style="
         display: flex;
