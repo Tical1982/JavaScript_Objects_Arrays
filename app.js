@@ -47,24 +47,37 @@ console.log(book.info());
 
 
 
-// let sentence = "The quick brown fox jumps over the lazy dog";
-// let words = sentence.split(" ");
-// let reversedWords = words.map( word => word.split(""). reverse().join(""));
-// let reversdSentence  = reversedWords.join("");
-// console.log(reversedSentence);
+let sentence = "The quick brown fox jumps over the lazy dog";
+//let words = sentence.split(" ");
+//let reversedWords = words.map( word => word.split(""). reverse().join(""));
+let reversedSentence  = sentence
+  .split(" ")
+  .map((word) => word.split("").reverse().join(""))
+  .join(" ");
+
+console.log(reversedSentence);
 
 
 
-// let csvData = "name , age \\nFrodo,50\\nSam,38\\nMerry,36\\nPippin,26";
+let csvData = "name,age\nFrodo,50\nSam,38\nMerry,36\nPippin,26";
 
-// let rows = csvData.split('\\n');
-// let headers = rows [0] . spliter(',');
-// let result = [];
+let rows = csvData.split('\n');
+let headers = rows[0].split(',');
+let result = [];
 
-// for (let i = 1; i  rows.length; i++) {
-//   let dataValues = rows[i]. split(',');
-//   let newObject = {};
-//   for (let j = 0; j  headers.length; j ++) {
+for (let i = 1; i < rows.length; i++) {
+    let dataValues = rows[i].split(',');
+    let newObject = {};
+
+    headers.forEach((header, colIndex) => {
+        newObject[header] = isNaN(dataValues[colIndex]) ? dataValues[colIndex] : Number(dataValues[colIndex]);
+    })
+
+    result.push(newObject)
+}
+console.log(result);
+
+//   for (let j = 0; j  headers.length; j++) {
 // newObject[headers[j]] = isNaN(dataValues[j]) ?
 // dataValues[j] : parseInt(dataValues[j]);
 // }
@@ -72,4 +85,5 @@ console.log(book.info());
 
 //   }
 
-//   console.log(result);
+//   console.log(result)
+//
